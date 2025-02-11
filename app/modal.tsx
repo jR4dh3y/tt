@@ -7,6 +7,11 @@ import { useRouter } from 'expo-router';
 export function ProfileModal() {
   const router = useRouter();
 
+  const handleLogout = () => {
+    // Add your logout logic here
+    router.replace('/login');
+  };
+
   return (
     <YStack f={1} backgroundColor="$background">
       <ScrollView>
@@ -101,6 +106,18 @@ export function ProfileModal() {
           </YStack>
 
           {/* Add more match history cards here */}
+        </YStack>
+
+        {/* Add Logout Button at the bottom */}
+        <YStack padding="$4">
+          <Button
+            size="$4"
+            theme="red"
+            icon={<Ionicons name="log-out-outline" size={20} />}
+            onPress={handleLogout}
+          >
+            Logout
+          </Button>
         </YStack>
       </ScrollView>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />

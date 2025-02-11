@@ -12,8 +12,8 @@ export {
 } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
+  // Change initial route to login
+  initialRouteName: 'login',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -57,6 +57,7 @@ export default function RootLayout() {
               headerShown: false,
             }} 
           />
+          <Stack.Screen name="login" options={{ headerShown: false }} />
         </Stack>
       </Theme>
     </TamaguiProvider>
