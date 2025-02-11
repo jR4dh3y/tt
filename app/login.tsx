@@ -7,7 +7,7 @@ import { View } from 'react-native';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('test@example.com');
-  const [password, setPassword] = useState('password123');
+  const [password, setPassword] = useState('password123');  
   const router = useRouter();
   const theme = useTheme();
 
