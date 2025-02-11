@@ -56,13 +56,12 @@ export default function TabOneScreen() {
         options={{ 
           header: () => (
             <View style={{ 
-              paddingTop: 45,
-              paddingBottom: 8,
+              paddingTop: 0,
               backgroundColor: theme.background.val,
               borderBottomWidth: 1,
               borderBottomColor: isDark ? theme.gray8.val : theme.gray5.val,
             }}>
-              <YStack paddingHorizontal="$4" space="$2.5">
+              <YStack paddingHorizontal="$4" paddingVertical="$2">
                 <XStack space="$2" alignItems="center" justifyContent="space-between">
                   <XStack flex={1} alignItems="center" space="$2">
                     <Ionicons 
@@ -101,7 +100,7 @@ export default function TabOneScreen() {
                   />
                 </XStack>
                 
-                <XStack space="$2" alignItems="center">
+                <XStack space="$2" alignItems="center" marginTop="$2">
                   <Input
                     flex={1}
                     placeholder="Search matches..."
