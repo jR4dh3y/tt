@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useRouter } from 'expo-router';
-import { Avatar, Button, Input, Text, XStack, YStack, Card, ScrollView, useTheme } from 'tamagui';
+import { Avatar, Button, Input, Text, XStack, YStack, Card, ScrollView, useTheme, Sheet } from 'tamagui';
 import { View, useColorScheme } from 'react-native';
 
 interface Match {
@@ -49,6 +49,35 @@ export default function TabOneScreen() {
   const theme = useTheme();
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
+  
+  // Add state for dropdowns
+  const [locationOpen, setLocationOpen] = useState(false);
+  const [dateOpen, setDateOpen] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState('gandhi nagar, jammU');
+  const [selectedDate, setSelectedDate] = useState('Today');
+  const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
+  const [matchDetailsOpen, setMatchDetailsOpen] = useState(false);
+
+  // Sample locations
+  const locations = [
+    'gandhi nagar, jammU',
+    'Green Park, Delhi',
+    'Marine Drive, Mumbai',
+    'MG Road, Bangalore'
+  ];
+
+  // Sample dates
+  const dates = [
+    'Today',
+    'Tomorrow',
+    'This Weekend',
+    'Next Week'
+  ];
+
+  const handleCardPress = (match: Match) => {
+    setSelectedMatch(match);
+    setMatchDetailsOpen(true);
+  };
 
   return (
     <YStack f={1} backgroundColor="$background">
@@ -63,7 +92,11 @@ export default function TabOneScreen() {
             }}>
               <YStack paddingHorizontal="$4" paddingVertical="$2">
                 <XStack space="$2" alignItems="center" justifyContent="space-between">
-                  <XStack flex={1} alignItems="center" space="$2">
+                  <XStack 
+                    flex={1} 
+                    alignItems="center" 
+                    space="$2" 
+                  >
                     <Ionicons 
                       name="location" 
                       size={20} 
@@ -76,7 +109,7 @@ export default function TabOneScreen() {
                         numberOfLines={1}
                         color="$color"
                       >
-                        gandhi nagar,jammU 
+                        {selectedLocation}
                       </Text>
                       <Ionicons 
                         name="chevron-down" 
@@ -129,7 +162,7 @@ export default function TabOneScreen() {
                         color={theme.color.val}
                       />
                     }
-                    onPress={() => {/* Add date picker logic */}}
+                    onPress={() => setDateOpen(true)}
                     backgroundColor="transparent"
                   />
                 </XStack>
@@ -139,6 +172,70 @@ export default function TabOneScreen() {
         }} 
       />
       
+      {/* Location Selector Sheet */}
+      <Sheet
+        modal
+        open={locationOpen}
+        onOpenChange={setLocationOpen}
+        snapPoints={[45]}
+        dismissOnSnapToBottom
+      >
+        <Sheet.Overlay />
+        <Sheet.Frame padding="$4">
+          <Sheet.Handle />
+          <YStack space="$4">
+            <Text fontSize="$6" fontWeight="bold">Select Location</Text>
+            {locations.map((location) => (
+              <Button
+                key={location}
+                size="$4"
+                backgroundColor={location === selectedLocation ? '$blue2' : 'transparent'}
+                onPress={() => {
+                  setSelectedLocation(location);
+                  setLocationOpen(false);
+                }}
+              >
+                <Text color={location === selectedLocation ? '$blue10' : '$color'}>
+                  {location}
+                </Text>
+              </Button>
+            ))}
+          </YStack>
+        </Sheet.Frame>
+      </Sheet>
+
+      {/* Date Selector Sheet */}
+      <Sheet
+        modal
+        open={dateOpen}
+        onOpenChange={setDateOpen}
+        snapPoints={[45]}
+        dismissOnSnapToBottom
+      >
+        <Sheet.Overlay />
+        <Sheet.Frame padding="$4">
+          <Sheet.Handle />
+          <YStack space="$4">
+            <Text fontSize="$6" fontWeight="bold">Select Date</Text>
+            {dates.map((date) => (
+              <Button
+                key={date}
+                size="$4"
+                backgroundColor={date === selectedDate ? '$blue2' : 'transparent'}
+                onPress={() => {
+                  setSelectedDate(date);
+                  setDateOpen(false);
+                }}
+              >
+                <Text color={date === selectedDate ? '$blue10' : '$color'}>
+                  {date}
+                </Text>
+              </Button>
+            ))}
+          </YStack>
+        </Sheet.Frame>
+      </Sheet>
+
       <ScrollView>
         <YStack padding="$4" space="$4">
           {MOCK_MATCHES.map((match) => (
@@ -155,7 +252,7 @@ export default function TabOneScreen() {
               scale={0.9}
               hoverStyle={{ scale: 0.925 }}
               pressStyle={{ scale: 0.875 }}
-              onPress={() => {/* Add card press logic */}}
+              onPress={() => handleCardPress(match)}
             >
               <Card.Header padded>
                 <XStack justifyContent="space-between" alignItems="center">
@@ -197,6 +294,92 @@ export default function TabOneScreen() {
           ))}
         </YStack>
       </ScrollView>
+
+      {/* Match Details Sheet */}
+      <Sheet
+        modal
+        open={matchDetailsOpen}
+        onOpenChange={setMatchDetailsOpen}
+        snapPoints={[80]}
+        dismissOnSnapToBottom
+      >
+        <Sheet.Overlay />
+        <Sheet.Frame padding="$4">
+          <Sheet.Handle />
+          {selectedMatch && (
+            <YStack space="$4">
+              <XStack justifyContent="space-between" alignItems="center">
+                <Text fontSize="$6" fontWeight="bold" color="$color">
+                  {selectedMatch.location}
+                </Text>
+                {/* <Button
+                  size="$3"
+                  theme="active"
+                  borderRadius="$10"
+                >
+                  Join Match
+                </Button> */}
+              </XStack>
+
+              <YStack space="$4" backgroundColor="$blue2" padding="$4" borderRadius="$4">
+                <XStack space="$4" alignItems="center">
+                  <XStack space="$2" alignItems="center">
+                    <Ionicons name="calendar-outline" size={20} color={theme.blue10.val} />
+                    <Text color="$gray11" fontSize="$4">{selectedMatch.time}</Text>
+                  </XStack>
+                  <XStack space="$2" alignItems="center">
+                    <Ionicons name="people-outline" size={20} color={theme.blue10.val} />
+                    <Text color="$gray11" fontSize="$4">{selectedMatch.players}</Text>
+                  </XStack>
+                </XStack>
+
+                <XStack space="$4" alignItems="center">
+                  <XStack space="$2" alignItems="center">
+                    <Ionicons name="location-outline" size={20} color={theme.blue10.val} />
+                    <Text color="$gray11" fontSize="$4">{selectedMatch.distance}</Text>
+                  </XStack>
+                  <XStack space="$2" alignItems="center">
+                    <Ionicons name="trophy-outline" size={20} color={theme.blue10.val} />
+                    <Text color="$gray11" fontSize="$4">{selectedMatch.level}</Text>
+                  </XStack>
+                </XStack>
+              </YStack>
+
+              <YStack space="$2">
+                <Text fontSize="$5" fontWeight="bold" color="$color">Organizer</Text>
+                <XStack space="$2" alignItems="center">
+                  <Avatar circular size="$4">
+                    <Avatar.Image source={{ uri: selectedMatch.organizer.avatar }} />
+                  </Avatar>
+                  <YStack>
+                    <Text fontSize="$4" fontWeight="bold" color="$color">
+                      {selectedMatch.organizer.name}
+                    </Text>
+                    <Text color="$gray11">Match Organizer</Text>
+                  </YStack>
+                </XStack>
+              </YStack>
+
+              <YStack space="$2">
+                <Text fontSize="$5" fontWeight="bold" color="$color">Description</Text>
+                <Text color="$gray11" fontSize="$4">
+                  Join us for a friendly match! All skill levels are welcome. 
+                  Please arrive 15 minutes before the start time.
+                </Text>
+              </YStack>
+
+              <Button
+                size="$4"
+                theme="active"
+                marginTop="$2"
+                onPress={() => setMatchDetailsOpen(false)}
+              >
+                Join Match
+              </Button>
+            </YStack>
+          )}
+        </Sheet.Frame>
+      </Sheet>
 
       <Button
         size="$6"
