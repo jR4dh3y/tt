@@ -19,8 +19,7 @@ export default function TabLayout() {
           backgroundColor: isDark ? '#000' : '#fff',
         },
         headerTintColor: isDark ? '#fff' : '#000',
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="index"
         options={{
@@ -32,9 +31,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="social"
         options={{
-          title: 'Profile',
+          title: 'Social',
           headerShown: true,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-outline" size={size} color={color} />
