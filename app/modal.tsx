@@ -1,35 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform } from 'react-native';
-import { Avatar, Button, H2, ScrollView, Text, XStack, YStack } from 'tamagui';
+import { Avatar, Button, H2, ScrollView, Text, XStack, YStack, useTheme } from 'tamagui';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
 export function ProfileModal() {
   const router = useRouter();
+  const theme = useTheme();
 
   const handleLogout = () => {
-    // Add your logout logic here
     router.replace('/login');
   };
 
   return (
     <YStack f={1} backgroundColor="$background">
       <ScrollView>
-        {/* Header Section */}
-        <XStack padding="$4" justifyContent="space-between" alignItems="center">
-          <Button
-            icon={<Ionicons name="chevron-back" size={24} />}
-            size="$3"
-            circular
-            onPress={() => router.back()}
-          />
-          <Button
-            icon={<Ionicons name="settings-outline" size={24} />}
-            size="$3"
-            circular
-          />
-        </XStack>
-
         {/* Profile Info */}
         <YStack padding="$4" alignItems="center" space="$4">
           <Avatar circular size="$12">
@@ -38,15 +23,25 @@ export function ProfileModal() {
           </Avatar>
           
           <YStack alignItems="center" space="$2">
-            <H2>John Doe</H2>
-            <Text color="$gray10">@player123</Text>
+            <H2 color="$color">John Doe</H2>
+            <Text color="$gray11">@johndoe</Text>
           </YStack>
 
           <XStack space="$2">
-            <Button icon={<Ionicons name="pencil-outline" size={20} />}>
+            <Button 
+              icon={<Ionicons name="pencil-outline" size={20} color={theme.color.val} />}
+              backgroundColor="$gray2"
+              borderWidth={1}
+              borderColor="$gray5"
+            >
               Edit Profile
             </Button>
-            <Button icon={<Ionicons name="share-outline" size={20} />}>
+            <Button 
+              icon={<Ionicons name="share-outline" size={20} color={theme.color.val} />}
+              backgroundColor="$gray2"
+              borderWidth={1}
+              borderColor="$gray5"
+            >
               Share Profile
             </Button>
           </XStack>
@@ -73,26 +68,33 @@ export function ProfileModal() {
 
         {/* Recent Activity */}
         <YStack padding="$4" space="$4">
-          <Text fontWeight="bold" fontSize="$5" color="$gray12">Recent Activity</Text>
+          <Text fontWeight="bold" fontSize="$5" color="$color">Recent Activity</Text>
           
           {/* Match History Card */}
-          <YStack backgroundColor="$blue2" borderRadius="$4" borderWidth={1} borderColor="$blue4" padding="$4" space="$2">
+          <YStack 
+            backgroundColor="$blue2" 
+            borderRadius="$4" 
+            borderWidth={1} 
+            borderColor="$blue4" 
+            padding="$4" 
+            space="$2"
+          >
             <XStack justifyContent="space-between" alignItems="center">
-              <Text fontWeight="bold" color="$gray12">Green Field Turf</Text>
+              <Text fontWeight="bold" color="$color">Green Field Turf</Text>
               <Text color="$green10" fontWeight="bold">Won</Text>
             </XStack>
             
             <XStack space="$4" alignItems="center">
               <XStack space="$2" alignItems="center">
-                <Ionicons name="calendar-outline" size={16} color="$blue10" />
+                <Ionicons name="calendar-outline" size={16} color={theme.blue10.val} />
                 <Text color="$gray11">Yesterday</Text>
               </XStack>
               <XStack space="$2" alignItems="center">
-                <Ionicons name="football-outline" size={16} color="$blue10" />
+                <Ionicons name="football-outline" size={16} color={theme.blue10.val} />
                 <Text color="$gray11">5v5</Text>
               </XStack>
               <XStack space="$2" alignItems="center">
-                <Ionicons name="trophy-outline" size={16} color="$blue10" />
+                <Ionicons name="trophy-outline" size={16} color={theme.blue10.val} />
                 <Text color="$gray11">MVP</Text>
               </XStack>
             </XStack>
