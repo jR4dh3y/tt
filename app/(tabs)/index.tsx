@@ -37,9 +37,9 @@ const MOCK_MATCHES: Match[] = [
     distance: '0.8 km',
     level: 'Intermediate',
     organizer: {
-      name: "Ravi Kumar",
-      avatar: "https://placekitten.com/100/100"
-    }
+      name: 'Ravi Kumar',
+      avatar: 'https://placekitten.com/100/100',
+    },
   },
   {
     id: 2,
@@ -49,10 +49,10 @@ const MOCK_MATCHES: Match[] = [
     distance: '1.2 km',
     level: 'Beginner',
     organizer: {
-      name: "Sneha Patel",
-      avatar: "https://placekitten.com/101/101"
-    }
-  }
+      name: 'Sneha Patel',
+      avatar: 'https://placekitten.com/101/101',
+    },
+  },
 ];
 
 export default function TabOneScreen() {
@@ -152,10 +152,12 @@ export default function TabOneScreen() {
           ),
         }}
       />
-      
+
       {/* Add title for recent matches */}
       <YStack padding="$4">
-        <Text fontSize="$5" fontWeight="bold" color="$color">Recent Matches</Text>
+        <Text fontSize="$5" fontWeight="bold" color="$color">
+          Recent Matches
+        </Text>
       </YStack>
 
       {/* Match Details Sheet */}

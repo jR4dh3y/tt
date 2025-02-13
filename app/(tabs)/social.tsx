@@ -72,24 +72,37 @@ const SOCIAL_USERS = [
   {
     id: '1',
     name: 'Amit Verma',
-    avatar: 'https://placekitten.com/200/200',
+    avatar: 'https://www.placekittens.com/400/400',
   },
   {
     id: '2',
     name: 'Priya Singh',
-    avatar: 'https://placekitten.com/201/201',
+    avatar: 'https://www.placekittens.com/401/401',
   },
   {
     id: '3',
     name: 'Ravi Kumar',
-    avatar: 'https://placekitten.com/202/202',
+    avatar: 'https://www.placekittens.com/402/402',
   },
   {
     id: '4',
     name: 'Sneha Patel',
-    avatar: 'https://placekitten.com/203/203',
+    avatar: 'https://www.placekittens.com/403/403',
   },
 ];
+
+const AvImage = ({ source }) => {
+  const [loaded, setLoaded] = React.useState(false);
+
+  const imgData = React.useMemo(() => {
+    return {
+      uri: source,
+      cache: 'no-cache',
+    };
+  }, [source]);
+
+  return <Avatar.Image source={imgData} onLoad={() => setLoaded(true)} />;
+};
 
 export default function SocialScreen() {
   const { colors } = useThemeContext();
@@ -99,7 +112,9 @@ export default function SocialScreen() {
       <YStack padding="$4" space="$4">
         {/* Friends Section */}
         <YStack space="$2">
-          <Text fontWeight="bold" fontSize="$5" color={colors.text}>Friends</Text>
+          <Text fontWeight="bold" fontSize="$5" color={colors.text}>
+            Friends
+          </Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <XStack space="$3" padding="$2">
               {/* Add Friend Button */}
@@ -112,16 +127,20 @@ export default function SocialScreen() {
                   borderWidth={1.5}
                   borderColor={colors.border}
                 />
-                <Text fontSize="$2" color={colors.textMuted}>Add</Text>
+                <Text fontSize="$2" color={colors.textMuted}>
+                  Add
+                </Text>
               </YStack>
-              
+
               {/* Online Friends */}
               {SOCIAL_USERS.map((friend) => (
                 <YStack key={friend.id} alignItems="center" space="$1">
                   <Avatar circular size="$5" borderWidth={2} borderColor={colors.primary}>
-                    <Avatar.Image source={{ uri: friend.avatar }} />
+                    <AvImage source={friend.avatar} />
                   </Avatar>
-                  <Text fontSize="$2" color={colors.textMuted}>{friend.name}</Text>
+                  <Text fontSize="$2" color={colors.textMuted}>
+                    {friend.name}
+                  </Text>
                 </YStack>
               ))}
             </XStack>
@@ -130,8 +149,10 @@ export default function SocialScreen() {
 
         {/* Community Updates */}
         <YStack space="$2">
-          <Text fontWeight="bold" fontSize="$5" color={colors.text}>Community Updates</Text>
-          
+          <Text fontWeight="bold" fontSize="$5" color={colors.text}>
+            Community Updates
+          </Text>
+
           {ACTIVITIES.map((activity) => (
             <Card
               key={activity.id}
@@ -140,27 +161,34 @@ export default function SocialScreen() {
               borderWidth={1.5}
               borderColor={colors.border}
               padding="$4"
-              marginVertical="$2"
-            >
+              marginVertical="$2">
               <XStack space="$3" alignItems="center">
                 <Avatar circular size="$4">
                   <Avatar.Image source={{ uri: activity.user.avatar }} />
                 </Avatar>
                 <YStack flex={1} space="$1">
                   <XStack space="$1" flexWrap="wrap">
-                    <Text fontWeight="bold" color={colors.text}>{activity.user.name}</Text>
+                    <Text fontWeight="bold" color={colors.text}>
+                      {activity.user.name}
+                    </Text>
                     <Text color={colors.textMuted}>{activity.action}</Text>
                   </XStack>
-                  <Text fontSize="$3" color={colors.primary}>{activity.details}</Text>
+                  <Text fontSize="$3" color={colors.primary}>
+                    {activity.details}
+                  </Text>
                   <XStack space="$4" marginTop="$1">
                     <XStack space="$1" alignItems="center">
                       <Ionicons name="time-outline" size={14} color={colors.textMuted} />
-                      <Text fontSize="$2" color={colors.textMuted}>{activity.time}</Text>
+                      <Text fontSize="$2" color={colors.textMuted}>
+                        {activity.time}
+                      </Text>
                     </XStack>
                     {activity.stats && (
                       <XStack space="$1" alignItems="center">
                         <Ionicons name="stats-chart-outline" size={14} color={colors.textMuted} />
-                        <Text fontSize="$2" color={colors.textMuted}>{activity.stats}</Text>
+                        <Text fontSize="$2" color={colors.textMuted}>
+                          {activity.stats}
+                        </Text>
                       </XStack>
                     )}
                   </XStack>
@@ -172,8 +200,10 @@ export default function SocialScreen() {
 
         {/* Upcoming Matches */}
         <YStack space="$2">
-          <Text fontWeight="bold" fontSize="$5" color={colors.text}>Upcoming Matches</Text>
-          
+          <Text fontWeight="bold" fontSize="$5" color={colors.text}>
+            Upcoming Matches
+          </Text>
+
           {UPCOMING_MATCHES.map((match) => (
             <Card
               key={match.id}
@@ -183,11 +213,12 @@ export default function SocialScreen() {
               borderColor={colors.border}
               padding="$4"
               marginVertical="$2"
-              pressStyle={{ scale: 0.98 }}
-            >
+              pressStyle={{ scale: 0.98 }}>
               <XStack justifyContent="space-between" alignItems="center">
                 <YStack space="$2">
-                  <Text fontWeight="bold" color={colors.text}>{match.location}</Text>
+                  <Text fontWeight="bold" color={colors.text}>
+                    {match.location}
+                  </Text>
                   <XStack space="$4">
                     <XStack space="$1" alignItems="center">
                       <Ionicons name="time-outline" size={16} color={colors.primary} />
