@@ -26,7 +26,7 @@ const MOCK_MATCHES: Match[] = [
     distance: "0.8 km",
     level: "Intermediate",
     organizer: {
-      name: "niraj",
+      name: "Ravi Kumar",
       avatar: "https://placekitten.com/100/100"
     }
   },
@@ -38,7 +38,7 @@ const MOCK_MATCHES: Match[] = [
     distance: "1.2 km",
     level: "Beginner",
     organizer: {
-      name: "neeraj2",
+      name: "Sneha Patel",
       avatar: "https://placekitten.com/101/101"
     }
   }
@@ -53,7 +53,7 @@ export default function TabOneScreen() {
   // Add state for dropdowns
   const [locationOpen, setLocationOpen] = useState(false);
   const [dateOpen, setDateOpen] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState('gandhi nagar, jammU');
+  const [selectedLocation, setSelectedLocation] = useState('Gandhi Nagar, Jammu');
   const [selectedDate, setSelectedDate] = useState('Today');
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [matchDetailsOpen, setMatchDetailsOpen] = useState(false);
@@ -170,6 +170,11 @@ export default function TabOneScreen() {
         }} 
       />
       
+      {/* Add title for recent matches */}
+      <YStack padding="$4">
+        <Text fontSize="$5" fontWeight="bold" color="$color">Recent Matches</Text>
+      </YStack>
+
       {/* Match Details Sheet */}
       <Sheet
         modal

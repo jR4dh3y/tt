@@ -53,9 +53,11 @@ function RootLayoutNav() {
                   backgroundColor={colors.background}
                   borderBottomWidth={1}
                   borderBottomColor={colors.border}
-                  padding="$4"
+                  padding="$2"
+                  paddingHorizontal="$3"
                   justifyContent="space-between"
                   alignItems="center"
+                  height={50}
                 >
                   <Button
                     icon={<Ionicons name="chevron-back" size={24} color={colors.text} />}
