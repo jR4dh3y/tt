@@ -18,140 +18,181 @@ export function ProfileModal() {
         <YStack padding="$4" space="$4">
           <XStack space="$4" alignItems="center">
             <Avatar circular size="$8">
-              <Avatar.Image source={{ uri: 'https://placekitten.com/200/200' }} />
+              <Avatar.Image source={{ uri: 'https://www.placekittens.com/500/500' }} />
               <Avatar.Fallback backgroundColor={colors.primary} />
             </Avatar>
-            
+
             <YStack space="$1" flex={1}>
               <H2 color={colors.text}>Rahul Sharma</H2>
-              <Text color={colors.textMuted} fontWeight="500">Striker • 5v5 Specialist</Text>
+              <Text color={colors.textMuted} fontWeight="500">
+                Striker • 5v5 Specialist
+              </Text>
             </YStack>
           </XStack>
 
           <XStack space="$2">
-            <Button 
+            <Button
               icon={<Ionicons name="pencil-outline" size={20} color={colors.cardText} />}
               backgroundColor={colors.card}
               borderWidth={1.5}
               borderColor={colors.border}
-              flex={1}
-            >
-              <Text color={colors.cardText} fontWeight="500">Edit Profile</Text>
+              flex={1}>
+              <Text color={colors.cardText} fontWeight="500">
+                Edit Profile
+              </Text>
             </Button>
-            <Button 
+            <Button
               icon={<Ionicons name="share-outline" size={20} color={colors.cardText} />}
               backgroundColor={colors.card}
               borderWidth={1.5}
               borderColor={colors.border}
-              flex={1}
-            >
-              <Text color={colors.cardText} fontWeight="500">Share Profile</Text>
+              flex={1}>
+              <Text color={colors.cardText} fontWeight="500">
+                Share Profile
+              </Text>
             </Button>
           </XStack>
         </YStack>
 
         {/* Career Stats */}
         <YStack padding="$4" space="$4">
-          <Text fontWeight="bold" fontSize="$5" color={colors.text}>Career Stats</Text>
-          
+          <Text fontWeight="bold" fontSize="$5" color={colors.text}>
+            Career Stats
+          </Text>
+
           {/* Main Stats Cards */}
           <XStack justifyContent="space-around" padding="$2">
             <YStack alignItems="center" space="$1">
-              <Text fontSize="$7" fontWeight="bold" color={colors.primary}>87</Text>
-              <Text color={colors.textMuted} fontWeight="500">Matches</Text>
+              <Text fontSize="$7" fontWeight="bold" color={colors.primary}>
+                87
+              </Text>
+              <Text color={colors.textMuted} fontWeight="500">
+                Matches
+              </Text>
             </YStack>
             <YStack alignItems="center" space="$1">
-              <Text fontSize="$7" fontWeight="bold" color={colors.success}>76%</Text>
-              <Text color={colors.textMuted} fontWeight="500">Win Rate</Text>
+              <Text fontSize="$7" fontWeight="bold" color={colors.success}>
+                76%
+              </Text>
+              <Text color={colors.textMuted} fontWeight="500">
+                Win Rate
+              </Text>
             </YStack>
             <YStack alignItems="center" space="$1">
-              <Text fontSize="$7" fontWeight="bold" color={colors.highlight}>4.8</Text>
-              <Text color={colors.textMuted} fontWeight="500">Rating</Text>
+              <Text fontSize="$7" fontWeight="bold" color={colors.highlight}>
+                4.8
+              </Text>
+              <Text color={colors.textMuted} fontWeight="500">
+                Rating
+              </Text>
             </YStack>
           </XStack>
 
           {/* Detailed Performance Metrics */}
-          <YStack 
+          <YStack
             backgroundColor={colors.card}
             borderRadius="$4"
             borderWidth={1}
             borderColor={colors.border}
             padding="$4"
-            space="$3"
-          >
-            <Text fontWeight="bold" color={colors.text}>Performance Stats</Text>
-            
+            space="$3">
+            <Text fontWeight="bold" color={colors.text}>
+              Performance Stats
+            </Text>
+
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>Goals Scored</Text>
-              <Text fontWeight="bold" color={colors.text}>124</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                124
+              </Text>
             </XStack>
-            
+
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>Assists</Text>
-              <Text fontWeight="bold" color={colors.text}>47</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                47
+              </Text>
             </XStack>
-            
+
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>Goals per Match</Text>
-              <Text fontWeight="bold" color={colors.text}>1.4</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                1.4
+              </Text>
             </XStack>
-            
+
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>Shot Accuracy</Text>
-              <Text fontWeight="bold" color={colors.text}>68%</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                68%
+              </Text>
             </XStack>
 
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>MVP Awards</Text>
-              <Text fontWeight="bold" color={colors.text}>15</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                15
+              </Text>
             </XStack>
           </YStack>
 
           {/* Playing Style */}
-          <YStack 
+          <YStack
             backgroundColor={colors.card}
             borderRadius="$4"
             borderWidth={1}
             borderColor={colors.border}
             padding="$4"
-            space="$3"
-          >
-            <Text fontWeight="bold" color={colors.text}>Playing Style</Text>
-            
+            space="$3">
+            <Text fontWeight="bold" color={colors.text}>
+              Playing Style
+            </Text>
+
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>Preferred Position</Text>
-              <Text fontWeight="bold" color={colors.text}>Striker</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                Striker
+              </Text>
             </XStack>
-            
+
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>Preferred Foot</Text>
-              <Text fontWeight="bold" color={colors.text}>Right</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                Right
+              </Text>
             </XStack>
-            
+
             <XStack justifyContent="space-between" alignItems="center">
               <Text color={colors.textMuted}>Play Style</Text>
-              <Text fontWeight="bold" color={colors.text}>Attacking</Text>
+              <Text fontWeight="bold" color={colors.text}>
+                Attacking
+              </Text>
             </XStack>
           </YStack>
 
           {/* Recent Activity */}
           <YStack space="$4">
-            <Text fontWeight="bold" fontSize="$5" color={colors.text}>Recent Match</Text>
-            
+            <Text fontWeight="bold" fontSize="$5" color={colors.text}>
+              Recent Match
+            </Text>
+
             {/* Match History Card */}
-            <YStack 
+            <YStack
               backgroundColor={colors.card}
               borderRadius="$4"
               borderWidth={1}
               borderColor={colors.border}
               padding="$4"
-              space="$2"
-            >
+              space="$2">
               <XStack justifyContent="space-between" alignItems="center">
-                <Text fontWeight="bold" color={colors.cardText}>Green Field Turf</Text>
-                <Text color={colors.success} fontWeight="bold">Won 4-2</Text>
+                <Text fontWeight="bold" color={colors.cardText}>
+                  Green Field Turf
+                </Text>
+                <Text color={colors.success} fontWeight="bold">
+                  Won 4-2
+                </Text>
               </XStack>
-              
+
               <XStack space="$4" alignItems="center">
                 <XStack space="$2" alignItems="center">
                   <Ionicons name="calendar-outline" size={16} color={colors.primary} />

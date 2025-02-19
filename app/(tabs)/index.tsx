@@ -112,7 +112,9 @@ export default function TabOneScreen() {
                     size="$3"
                     circular
                     icon={
-                      <Ionicons name="person-circle-outline" size={24} color={theme.color.val} />
+                      <Avatar circular size="$2">
+                        <Avatar.Image source={{ uri: 'https://www.placekittens.com/500/500' }} />
+                      </Avatar>
                     }
                     onPress={() => router.push('/modal')}
                     backgroundColor="transparent"

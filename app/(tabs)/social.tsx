@@ -11,7 +11,7 @@ const ACTIVITIES = [
     type: 'match',
     user: {
       name: 'Alex Smith',
-      avatar: 'https://placekitten.com/101/101',
+      avatar: 'https://www.placekittens.com/305/305',
     },
     action: 'won a match',
     details: 'Green Field Turf • 5v5',
@@ -23,7 +23,7 @@ const ACTIVITIES = [
     type: 'achievement',
     user: {
       name: 'Sarah Johnson',
-      avatar: 'https://placekitten.com/102/102',
+      avatar: 'https://www.placekittens.com/304/304',
     },
     action: 'earned an achievement',
     details: 'Hat-trick Hero',
@@ -35,7 +35,7 @@ const ACTIVITIES = [
     type: 'joined',
     user: {
       name: 'Mike Wilson',
-      avatar: 'https://placekitten.com/103/103',
+      avatar: 'https://www.placekittens.com/302/302',
     },
     action: 'joined a match',
     details: 'Central Park Court',
@@ -53,7 +53,7 @@ const UPCOMING_MATCHES = [
     players: '8/10',
     organizer: {
       name: 'David',
-      avatar: 'https://placekitten.com/104/104',
+      avatar: 'https://www.placekittens.com/301/301',
     },
   },
   {
@@ -63,7 +63,7 @@ const UPCOMING_MATCHES = [
     players: '6/10',
     organizer: {
       name: 'Emma',
-      avatar: 'https://placekitten.com/105/105',
+      avatar: 'https://www.placekittens.com/300/300',
     },
   },
 ];
