@@ -116,7 +116,7 @@ export default function TabOneScreen() {
                         <Avatar.Image source={{ uri: 'https://www.placekittens.com/500/500' }} />
                       </Avatar>
                     }
-                    onPress={() => router.push('/modal')}
+                    onPress={() => router.push('/profile')}
                     backgroundColor="transparent"
                   />
                 </XStack>

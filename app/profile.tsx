@@ -6,7 +6,7 @@ import { useRouter } from 'expo-router';
 import { useThemeContext } from './context/theme';
 import React from 'react';
 
-export function ProfileModal() {
+export function profile() {
   const router = useRouter();
   const theme = useTheme();
   const { colors } = useThemeContext();
@@ -225,4 +225,4 @@ export function ProfileModal() {
   );
 }
 
-export default ProfileModal;
+export default profile;

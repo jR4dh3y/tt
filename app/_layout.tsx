@@ -99,6 +99,15 @@ function RootLayoutNav() {
               presentation: 'push',
             }} 
           />
+          <Stack.Screen 
+            name="profile" 
+            options={{ 
+              headerShown: true,
+              title: 'Profile',
+              animation: 'slide_from_right',
+              presentation: 'push',
+            }} 
+          />
         </Stack>
       </Theme>
     </TamaguiProvider>
