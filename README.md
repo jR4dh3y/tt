@@ -1,4 +1,5 @@
 # Sports Match Organizer App
+(wirefraim of applicaton that i build during ide-bootcamp 2025 at iit jammu, planing to complete during sem brake)
 A modern React Native mobile application for organizing and joining sports matches. Built with Expo, Tamagui, and React Native.
 
 ## Features
